@@ -1,22 +1,22 @@
+/* eslint-disable quotes */
 module.exports = {
-  'env': {
-    'browser': true,
-    'es2020': true,
+  env: {
+    browser: true,
+    es2020: true,
   },
-  'extends': [
-    'plugin:react/recommended',
-    'google',
-  ],
-  'parserOptions': {
-    'ecmaFeatures': {
-      'jsx': true,
+  extends: ["plugin:react/recommended", "google"],
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
     },
-    'ecmaVersion': 11,
-    'sourceType': 'module',
+    ecmaVersion: 11,
+    sourceType: "module",
   },
-  'plugins': [
-    'react',
-  ],
-  'rules': {
+  plugins: ["react"],
+  rules: {},
+  settings: {
+    react: {
+      version: "detect",
+    },
   },
 };
