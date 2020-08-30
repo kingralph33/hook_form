@@ -1,14 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 
 import "./PersonForm.scss";
 
-const PersonForm = (props) => {
+const PersonForm = props => {
   // variables for first name, last name, email, password
-  const [fName, setFName] = useState("");
-  const [lName, setLName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const { inputs, setInputs } = props;
+
+  const onChange = e => {
+    setInputs({
+      ...inputs,
+      [e.target.name]: e.target.value
+    });
+  }
 
   return (
     <div>
@@ -22,7 +25,7 @@ const PersonForm = (props) => {
               type="text"
               name="fName"
               className="input"
-              onChange={(event) => setFName(event.target.value)}
+              onChange={onChange}
             />
           </div>
           <div className="fields">
@@ -33,7 +36,7 @@ const PersonForm = (props) => {
               type="text"
               name="lName"
               className="input"
-              onChange={(event) => setLName(event.target.value)}
+              onChange={onChange}
             />
           </div>
           <div className="fields">
@@ -44,7 +47,7 @@ const PersonForm = (props) => {
               type="text"
               name="email"
               className="input"
-              onChange={(event) => setEmail(event.target.value)}
+              onChange={onChange}
             />
           </div>
           <div className="fields">
@@ -55,7 +58,7 @@ const PersonForm = (props) => {
               type="password"
               name="password"
               className="input"
-              onChange={(event) => setPassword(event.target.value)}
+              onChange={onChange}
             />
           </div>
           <div className="fields">
@@ -66,20 +69,10 @@ const PersonForm = (props) => {
               type="password"
               name="confirmPassword"
               className="input"
-              onChange={(event) => setConfirmPassword(event.target.value)}
+              onChange={onChange}
             />
           </div>
         </form>
-      </div>
-      <div>
-        <section className="showFormData">
-          <h1 className="dataHeader">Your Form Data</h1>
-          <p>First Name: {fName}</p>
-          <p>Last Name: {lName}</p>
-          <p>Email: {email}</p>
-          <p>Password: password</p>
-          <p>Confirm Password: password</p>
-        </section>
       </div>
     </div>
   );
